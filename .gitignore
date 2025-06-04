@@ -1,0 +1,27 @@
+# SFML/C++ build files
+*.o
+*.obj
+*.exe
+*.out
+*.log
+*.a
+*.so
+*.dll
+
+# Mac specific
+.DS_Store
+
+# Binary
+sfml-app
+
+# VSCode settings (nếu không muốn chia sẻ)
+.vscode/
+
+# Optional: cmake, make
+CMakeFiles/
+CMakeCache.txt
+Makefile
+makefile
+
+# Other build folders
+build/
