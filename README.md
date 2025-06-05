@@ -7,18 +7,19 @@
 
 ## 📁 Cấu trúc thư mục
 
-├── assets/ # Dữ liệu và tài nguyên (font, hình ảnh, file dữ liệu)
-│ ├── data/ # File dữ liệu đồ thị (VD: danh sách trạm, tuyến)
-│ ├── font/ # Phông chữ sử dụng trong giao diện
-│ └── images/ # Ảnh hiển thị (bản đồ, icon,...)
-├── inc/ # Header files (.h)
-├── src/ # Source code chính (.cpp)
-├── makefile # Tập tin build project
-├── sfml-app # File thực thi sau khi build (bỏ qua khi push)
-└── .gitignore # Bỏ qua file không cần thiết khi push
-
-
----
+```plaintext
+├── assets/         # Dữ liệu và tài nguyên (font, hình ảnh, file dữ liệu)
+│   ├── data/       # File dữ liệu đồ thị (VD: danh sách trạm, tuyến,...)
+│   ├── font/       # Phông chữ sử dụng trong giao diện
+│   └── images/     # Hình ảnh hiển thị (bản đồ, icon,...)
+│
+├── inc/            # Các file header (.h)
+├── src/            # Source code chính (.cpp)
+│
+├── makefile        # Tập tin build project
+├── sfml-app        # File thực thi sau khi build (bỏ qua khi push)
+└── .gitignore      # Bỏ qua file không cần thiết khi push
+```
 
 ## 🛠 Cài đặt và chạy
 
