@@ -22,8 +22,18 @@
 
 ## 🛠 Cài đặt và chạy
 
-- build chương trình bằng lệnh make
-- chạy chương trình bằng lệnh ./sfml-app
+- Build chương trình bằng lệnh:
+
+```bash
+make
+```
+
+- chạy chương trình bằng lệnh:
+```bash
+./sfml-app
+```
+
+
 
 ### 🔧 Yêu cầu
 
