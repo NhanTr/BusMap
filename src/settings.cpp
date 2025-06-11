@@ -5,6 +5,7 @@ sf::RenderWindow window;
 sf::Color green = sf::Color (0, 255, 127);
 sf::Color grey = sf::Color (193, 205, 205);
 sf::Color spring_green = sf::Color (0, 139, 0);
+sf::Color light_blue = sf::Color (0, 255, 255);
 
 sf::Vector2f mouseST;
 sf::Vector2f dis_move;

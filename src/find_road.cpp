@@ -66,6 +66,30 @@ std::vector <int> find_road::find(int st, int en, int& val, std::vector <int> vi
     return res;
 }
 
+
+std::vector <int> find_road::find_the_second_road(int st, int en, std::vector <int> visited) {
+    
+    std::vector <int> res;
+    int min_value = 1e9;
+    for (int i = 0; i < ans.size() - 1; i++) {
+        res.push_back(ans[i]);
+        int value_f, value_s;
+        for (auto x: adj[ans[i]]) {
+            if (x.first == ans[i + 1]) continue;
+            std::vector <int> road_1 = find(st, x.first, value_f, {});
+            std::vector <int> road_2 = find(x.first, en, value_s, {});
+            if (value_f + value_s < min_value) {
+                res.clear();
+                for (auto x:road_1)
+                    res.push_back(x);
+                for (int i = 1; i < road_2.size(); i++)
+                    res.push_back(road_2[i]);
+            }
+        }
+    }
+    return res;
+}
+
 void find_road::draw() {
     
 }

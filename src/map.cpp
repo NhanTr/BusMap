@@ -52,6 +52,7 @@ void read_mymap(std::vector <history> &adj) {
 
 map::map(/* args */): st("START"), en("FINISH")
 {   
+    pre_st = pre_en = "";
     read_node(station);
     read_edge(route, station);
     read_mymap(history_map.getAdj());
@@ -59,6 +60,7 @@ map::map(/* args */): st("START"), en("FINISH")
     en.setPosition({505, 550});
     fr.setSize_adj(station.size() + 1);
     fr.read_bus_route();
+    
 }
 
 map::~map()
@@ -76,12 +78,28 @@ void map::draw() {
     if (!st.getString().empty() && !en.getString().empty() && isTrue()) {
         for (auto x:fr.getAns())
             station[x - 1].setColor(grey);
+        for (auto x:fr.get_theSecond_road())
+            station[x - 1].setColor(grey);
             
         fr.getAns().clear();
+        fr.get_theSecond_road().clear();
 
         fr.getAns() = fr.find(to_int(st.getString()), to_int(en.getString()), fr.getValue(), {});
+        fr.get_theSecond_road() = fr.find_the_second_road(to_int(st.getString()), to_int(en.getString()), {});
 
         std::vector<int> ans = fr.getAns();
+        std::vector<int> ans_2 = fr.get_theSecond_road();
+
+
+        for (int i = 1; i < ans_2.size(); i++) {
+            edge temp(ans_2[i - 1] - 1, ans_2[i] - 1);
+            temp.setPosition(station);
+            temp.setColor(light_blue);
+            temp.draw();
+        }
+
+        for (auto x:ans_2)
+            station[x - 1].setColor(light_blue);
 
         for (int i = 1; i < ans.size(); i++) {
             edge temp(ans[i - 1] - 1, ans[i] - 1);
@@ -92,6 +110,8 @@ void map::draw() {
 
         for (auto x:ans)
             station[x - 1].setColor(green);
+
+        
 
 
         // draw text total time go 
@@ -106,6 +126,9 @@ void map::draw() {
         for (auto x:fr.getAns())
             station[x - 1].setColor(grey);
         fr.getAns().clear();
+        for (auto x:fr.get_theSecond_road())
+            station[x - 1].setColor(grey);
+        fr.get_theSecond_road().clear();
     }
     for (int i = 0; i < station.size(); i++)
         station[i].draw();
@@ -119,6 +142,7 @@ void map::draw() {
 }
 
 bool map::isTrue() {
+
     int u = to_int(st.getString());
     int v = to_int(en.getString());
     if (u <= 0 || u > station.size() || v <= 0 || v > station.size())
@@ -215,6 +239,7 @@ void map::handleDelete(std::optional <sf::Event> &event) {
                 history_map.getAdj()[i].text.setFillColor(sf::Color::White);
             }
     }
+
     if (event->is <sf::Event::MouseButtonPressed>()) {
         if (event->getIf <sf::Event::MouseButtonPressed>()->button == sf::Mouse::Button::Right) {
             for (int i = 0; i < history_map.getAdj().size(); i++)

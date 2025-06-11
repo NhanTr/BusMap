@@ -6,7 +6,6 @@
 ---
 
 ## 📁 Cấu trúc thư mục
-
 ```plaintext
 ├── assets/         # Dữ liệu và tài nguyên (font, hình ảnh, file dữ liệu)
 │   ├── data/       # File dữ liệu đồ thị (VD: danh sách trạm, tuyến,...)
@@ -22,7 +21,6 @@
 ```
 
 ## 🛠 Cài đặt và chạy
-
 - Build chương trình bằng lệnh:
 
 ```bash

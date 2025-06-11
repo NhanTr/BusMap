@@ -15,6 +15,7 @@ private:
     std::vector <node> station;
     std::vector <edge> route; 
     box st, en;
+    std::string pre_st, pre_en;
     find_road fr;
     sf::Vector2f move;
     save_route sv;
